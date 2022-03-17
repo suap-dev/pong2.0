@@ -7,6 +7,8 @@
 
 
  homework 2022-03-17:
-  - read about Object Oriented Programming
-  - do the tasks from Rocket.lua
   - experiment with more balls, diferent sizes, try to fk something up with just balls. :) (no rockets)
+  - check the important links that were added
+  - read about Object Oriented Programming
+  - read and learn from test1.txt
+  - do the tasks from Rocket.lua
