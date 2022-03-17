@@ -15,6 +15,22 @@ local Rocket = Class(
     -- end
 
     init = function(self, world, upperLeftCornerX, upperLeftCornerY, width, height, baseVelocity, axis)
+        -- HOMEWORK:
+        -- jako pracę domową musisz uzupełnić ten konstruktor (czyli tę funkcję init)
+        -- Twoim zadaniem jest przypisać odpowiednie wartości zmiennym, które zadeklarowaliśmy pod spodem
+        -- nie dodawaj do self żadnych innych/dodatkowych zmiennych
+        -- możesz używać zmiennych lokalnych jeśli potrzebujesz coś tymczasowego w trakcie obliczeń
+
+        -- przyklad. zalozmy ze chcemy obliczyc pole naszej paletki i jej "masę" i zapisać jako property
+        -- self.mass
+        -- property to "zmienna wewnątrz obiektu (danej klasy)"
+        local density = 2
+        local area = width * height
+        self.mass = area * density
+        -- zmienne local zostaną usunięte z pamięci po skonstruowaniu obiektu
+        -- wewnątrz obiektu będzie dostępna tylko self.mass
+
+        -- oblicz/uzupełnij poniższe properties:
         self.world
 
         -- te zmienne muszą być uzupełniane
