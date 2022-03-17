@@ -3,14 +3,29 @@ local Class = require("class")
 local Ball = Class(
     {
         init = function(self, world, centerX, centerY, radius, baseVelocityX, baseVelocityY)
-            self.world = world
+            self.world = world            
 
             -- HW1
             -- jeśli piłka spawni się częściowo poza krawędzią świata
-            -- zespawnij ją zaraz przy tej krawędzi
-            self.centerX = centerX
-            self.centerY = centerY
+            -- zespawnij ją zaraz przy tej krawędzi            
+            if centerY - radius < 0 then
+                self.centerY = radius
+            elseif centerY + radius > world.height then
+                self.centerY = world.height - radius
+            else
+                self.centerY = centerY
+            end
+
+            if centerX - radius < 0 then
+                self.centerX = radius
+            elseif centerX + radius > world.width then
+                self.centerX = world.width - radius
+            else
+                self.centerX = centerX
+            end            
+
             self.radius = radius
+
             self.velocityX = baseVelocityX
             self.velocityY = baseVelocityY
         end,
@@ -30,6 +45,9 @@ local Ball = Class(
             self.centerX = self.centerX + (self.velocityX * dt)
             self.centerY = self.centerY + (self.velocityY * dt)
 
+            -- if the ball is aproaching a certain wall (velocity check)
+            -- AND it's close enough to bounce
+            -- MAKE IT BOUNCE (change velocity)
             if self.velocityX > 0
             and self.centerX + self.radius >= self.world.width then
                 self.velocityX = -self.velocityX
@@ -41,13 +59,25 @@ local Ball = Class(
             end
 
             -- HW2
-            if self.centerY + self.radius >= self.world.height then
+            if
+            self.velocityY > 0 and
+            self.centerY + self.radius >= self.world.height then
                 self.velocityY = -self.velocityY
             end
-            if self.centerY - self.radius <= 0 then
+
+            if
+            self.velocityY < 0 and
+            self.centerY - self.radius <= 0 then
                 self.velocityY = -self.velocityY
             end
+
+            -- TODO: change this hotfix
+            -- code it as a part of the ball constructor
+            -- if self.centerY - self.radius < 0 then
+            --     self.centerY = 0 + self.radius
+            -- end 
         end
+
     }
 )
 

@@ -7,14 +7,19 @@ local ball1
 local world = {}
 
 function love.load()
-    world.width, world.height = love.graphics.getDimensions( )
+    world.width, world.height = love.graphics.getDimensions()
+
+    -- Ball(self, world, centerX, centerY, radius, baseVelocityX, baseVelocityY)
     ball1 = Ball(world, 11,12,100, 100, 100)
+    ball2 = Ball(world, 92348, 12398431, 20, 200, 200)
 end
 
 function love.update(dt)
     ball1:update(dt)
+    ball2:update(dt)
 end
 
 function love.draw()
     ball1:draw()
+    ball2:draw()
 end
