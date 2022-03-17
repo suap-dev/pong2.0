@@ -47,7 +47,12 @@ local Ball = Class(
             if self.centerY - self.radius <= 0 then
                 self.velocityY = -self.velocityY
             end
+
+            if self.centerY - self.radius < 0 then
+                self.centerY = 0 + self.radius
+            end 
         end
+
     }
 )
 
