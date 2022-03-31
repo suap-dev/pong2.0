@@ -12,6 +12,7 @@ function love.load()
     -- Ball(self, world, centerX, centerY, radius, baseVelocityX, baseVelocityY)
     ball1 = Ball(world, 11,12,100, 100, 100)
     ball2 = Ball(world, 92348, 12398431, 20, 200, 200)
+    ball3 = Ball(world, 400, 300, 200, 300, 300)
 end
 
 function love.update(dt)

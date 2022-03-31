@@ -1,9 +1,10 @@
 local Class = require("class")
+local math = require("math")
 --powiedmy że to ta lewa rakietka bo nie wiem czy mam robić obie w jednej klasie czy osobno
 
 local Rocket = Class(
 {
-<<<<<<< HEAD
+
     init = function(self, world, sideRight, sideLeft, sideUp, sideDown, baseVelocityX, baseVelocityY)
         self.world = world
         self.sideRight = sideRight
@@ -12,6 +13,7 @@ local Rocket = Class(
         self.sideDown = sideDown
         self.velocityX = baseVelocityX
         self.velocityY =  baseVelocityY
+    end
 
 
 
@@ -19,7 +21,7 @@ local Rocket = Class(
 
 
 
-=======
+
     -- init = function(self, world, sideRight, sideLeft, sideUp, sideDown, baseVelocityX, baseVelocityY)
     --     self.world = world
     --     self.sideRight = sideRight
@@ -48,17 +50,17 @@ local Rocket = Class(
         -- wewnątrz obiektu będzie dostępna tylko self.mass
 
         -- oblicz/uzupełnij poniższe properties:
-        self.world
+        self.world = world
 
         -- te zmienne muszą być uzupełniane
         -- przez wyliczenie poprawnych wartości
         -- korzystając z upperLeftCornerX, upperLeftCornerY, width, height
         -- każda ta zmienna ma zawierać tylko JEDNĄ liczbę, która odpowiada współrzędnej
         -- wsp x
-        self.sideLeft
-        self.sideRight
+        self.sideLeft = upperLeftCornerX
+        self.sideRight =
         --wsp y
-        self.sideUpper
+        self.sideUpper = upperLeftCornerY
         self.sideBottom
 
 
@@ -66,15 +68,29 @@ local Rocket = Class(
         -- base velocity musi być DODATNIE. jeśli uzytkownik poda ujemne - wtedy skorzystaj z napisanej wczesniej funkcji abs
         -- funkcja abs znajduje sie w NASZYM module math
         -- zaimportuj moduł na początku plik za pomocą odpowiedniego "require"
-        self.baseVelocity
-
+        self.baseVelocity = baseVelocity
+        if baseVelocity < 0 then 
+            math.abs(baseVelocity)
+        end
         -- 1 - axis X, 2 - axis Y
         -- sprawdzic, czy uzytkownik podal odpowiedni axis,
         -- jesli tak - przypisac jego wartosc
         -- w przeciwnym wypadku na razie przypisac wartość -1
-        self.axis
+        self.axis = axis
 
->>>>>>> main
+        if 0 <= axis[1] <= 800 then
+            axis = axis
+        else
+            axis = -1
+        end
+
+        if 0 <= axis[2] <= 600 then
+            axis = axis
+        else
+            axis = -1
+        end
+
+
     end
 }
 

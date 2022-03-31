@@ -71,17 +71,16 @@ local Ball = Class(
                 self.velocityY = -self.velocityY
             end
 
-<<<<<<< HEAD
+
             if self.centerY - self.radius < 0 then
                 self.centerY = 0 + self.radius
             end 
-=======
             -- TODO: change this hotfix
             -- code it as a part of the ball constructor
             -- if self.centerY - self.radius < 0 then
             --     self.centerY = 0 + self.radius
             -- end 
->>>>>>> main
+
         end
 
     }
