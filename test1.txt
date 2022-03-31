@@ -1,0 +1,52 @@
+1. co to jest operator przypisania i jak działa (dokładnie)
+
+ZMIENNA = WARTOŚĆ
+
+lvalue = rvalue
+
+lvalue <-> left value
+rvalue <-> right value
+
+lvalue:
+ - zmienna!
+ - (w sumie dowolne coś co można jako zmienną interpretować... pogadamy o tym jeszcze.)
+
+rvalue:
+ - stała
+ - wyrażenie (algebraiczne na przykład)
+ - wywołanie funkcji (a właściwie wartość zwrócona przez funkcję po wywołaniu)
+ - to może być też CAŁA FUNKCJA (a nie tylko zwrócona przez nią wartość) (właściwie jej adres w pamięci)
+ - tabela
+ - wartość logiczna (true/false)
+ - wyrażenie logincze >, <, ==
+ - dowolna wartosc zwrocona przez funkcję, która komunikuje program ze światem rzeczywistym
+
+2. czym się różni zmienna od stałej
+UWAGA: w lua
+ - stala to po prostu zwykle liczba, jakaś konkretna wartość, nie nazwa
+ - zmienna to zwykle nazwa
+
+w c++, pythonie:
+ - możesz powiedzieć, że jakaś NAZWA oznacza STAŁĄ (const)
+
+3. co to jest typ danej/typ zmiennej
+UWAGA: w lua typy danych/zmiennych to:
+ - number
+ - string
+ - function
+ - table {}
+ - boolean (true/false)
+ - nil (to znaczy ABSOLUTNY BRAK WARTOŚCI. NIC.)
+
+4. co to jest klasa?
+ - klasa to SPECYFIKACJA
+ - klasa to "taki jakby typ danej" :]
+ - natomiast klasa opisuje nie tylko RODZAJ WARTOŚCI, która się w niej zajmuje
+ - opisuje także JAKIE OPERACJE dany typ potrafie wykonywać
+ - czyli np. myszka, to takie urządzenie, które ma co najmniej 2 przyciski, umie odczytać klik, zmianę pozycji oraz zwrócić informacje o tym do komputera
+
+5. co to jest opbiekt?
+ - obiekt (danej klasy) to INSTANCJA, zgodna ze specyfikacją (klasą)
+ - czyli np. myszka Adama, bezprzewodowa, 5 przycisków, światełka, razer, brudna, na kabelku
+
+
