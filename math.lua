@@ -6,7 +6,7 @@
 
 local math = {}
 
-math.abs = function(number)
+function math.absfunction(number)
     if number >= 0 then
         return number
     else
