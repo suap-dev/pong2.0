@@ -1,0 +1,30 @@
+"Każda gra jest pętlą."
+
+start 
+-> uruchamia stan początkowy
+
+krok 1
+-> w tym kroku sprawdzane jest czy coś się zmieniło w stanie gry
+-> być może tą zmianą jest "NPC się poruszył"
+-> albo player nacisnal klawisz
+
+krok 2
+-> reakcja na te zmiany - jakaś... obliczamy coś, updatujemy
+
+krok 3
+-> karta graficzna rysuje na ekran to, co powinien widzieć gracz
+
+krok 4
+-> czy kończymy?
+-> jeśli nie to powrót do kroku 1
+
+
+w love:
+
+(deklaracja zmiennych lokalnych)
+start -> love:load()
+krok1, krok2 -> love:update()
+krok3 -> love:draw()
+
+powrót do kroku 1
+

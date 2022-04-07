@@ -48,5 +48,3 @@ UWAGA: w lua typy danych/zmiennych to:
 5. co to jest opbiekt?
  - obiekt (danej klasy) to INSTANCJA, zgodna ze specyfikacją (klasą)
  - czyli np. myszka Adama, bezprzewodowa, 5 przycisków, światełka, razer, brudna, na kabelku
-
-

@@ -2,7 +2,12 @@ local Class = require("class")
 
 local Ball = Class(
     {
-        init = function(self, world, centerX, centerY, radius, baseVelocityX, baseVelocityY)
+        init = function(self,
+                world,
+                centerX, centerY, radius,
+                baseVelocityX, baseVelocityY,
+                leftRocket
+            )
             self.world = world            
 
             -- HW1
@@ -80,7 +85,6 @@ local Ball = Class(
             -- if self.centerY - self.radius < 0 then
             --     self.centerY = 0 + self.radius
             -- end 
-
         end
 
     }
