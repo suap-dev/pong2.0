@@ -80,9 +80,25 @@ function Rocket:draw()
     )
 end
 
-function Rocket:movement()
+function Rocket:movement(dt, movementAxis, movementKey1, movementKey2, upperLeftCornerY, upperLeftCornerX, velocity)
     -- dt?
+    if movementAxis == "Y" then
+        if love.keyboard.isDown(movementKey1) then
+            upperLeftCornerY = upperLeftCornerY + velocity*dt
+        end
+    elseif love.keyboard.isDown(movementKey2) then
+        upperLeftCornerY = upperLeftCornerY - velocity*dt
+        
+    end
 
+    if movementAxis == "X" then
+        if love.keyboard.isDown(movementKey1) then
+            upperLeftCornerX = upperLeftCornerX - velocity*dt
+        end
+    elseif love.keyboard.isDown(movementKey2) then
+        upperLeftCornerX = upperLeftCornerX + velocity*dt
+        
+    end
     -- tutaj chcesz zrobić "keypressed" i obsłużyć kierunki
     -- jaki jest movement axis?
     -- "X"
