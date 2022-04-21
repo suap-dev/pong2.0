@@ -1,4 +1,15 @@
 local Class = require("class")
+local Rocket = require("rocket")
+local math = require("math")
+
+-- local rocket = Rocket:init(
+--     world,
+--     upperLeftCornerX, upperLeftCornerY,
+--     width, height,
+--     baseVelocity,
+--     movementAxis, 
+--     movementKey1, movementKey2
+-- )
 
 local Ball = Class(
     {
@@ -8,7 +19,8 @@ local Ball = Class(
                 baseVelocityX, baseVelocityY,
                 leftRocket
             )
-            self.world = world            
+            self.leftRocket = leftRocket
+            self.world = world
 
             -- HW1
             -- jeśli piłka spawni się częściowo poza krawędzią świata
@@ -34,6 +46,7 @@ local Ball = Class(
             self.velocityX = baseVelocityX
             self.velocityY = baseVelocityY
         end,
+        -- /init
 
         draw = function(self)
             love.graphics.circle("fill", self.centerX, self.centerY, self.radius)
@@ -41,12 +54,11 @@ local Ball = Class(
             love.graphics.print("vy: " .. self.velocityY, 0, 50)
             love.graphics.print("cx: " .. self.centerX, 0, 100)
             love.graphics.print("cy: " .. self.centerY, 0, 150)
-            love.graphics.print("w: " .. self.world.width, 0, 200)
-            
+            love.graphics.print("w: " .. self.world.width, 0, 200)            
         end,
+        -- /draw
 
         update = function(self, dt)
-
             self.centerX = self.centerX + (self.velocityX * dt)
             self.centerY = self.centerY + (self.velocityY * dt)
 
@@ -79,13 +91,30 @@ local Ball = Class(
 
             if self.centerY - self.radius < 0 then
                 self.centerY = 0 + self.radius
-            end 
-            -- TODO: change this hotfix
-            -- code it as a part of the ball constructor
-            -- if self.centerY - self.radius < 0 then
-            --     self.centerY = 0 + self.radius
-            -- end 
+            end
+
+
+            -- self = ball
+            if
+                self.velocityX < 0
+                    and
+                self.centerX - self.radius <= self.world.rockets.left.rightSide
+                    and 
+                self.centerY <= self.world.rockets.left.bottom
+                    and
+                self.centerY >= self.world.rockets.left.top
+                    then                        
+                self.velocityX = -self.velocityX
+
+            end
+
+            
+
+            -- if self.centerY - self.radius >= self.top and self.centerY then
+            --     if 
+            -- end
         end
+        -- /update
 
     }
 )

@@ -9,8 +9,7 @@ function Rocket:init(
         world,
         upperLeftCornerX, upperLeftCornerY,
         width, height,
-        baseVelocity,
-        movementAxis, -- "X" or "Y"
+        baseVelocity, movementAxis, -- "X" or "Y"
         movementKey1, movementKey2
     )
     -- HOMEWORK:
@@ -37,8 +36,8 @@ function Rocket:init(
     -- korzystając z upperLeftCornerX, upperLeftCornerY, width, height
     -- każda ta zmienna ma zawierać tylko JEDNĄ liczbę, która odpowiada współrzędnej
     -- wsp x
-    self.left = upperLeftCornerX
-    self.right = upperLeftCornerX + width
+    self.leftSide = upperLeftCornerX
+    self.rightSide = upperLeftCornerX + width
     --wsp y
     self.top = upperLeftCornerY
     self.bottom = upperLeftCornerY + height
@@ -73,10 +72,10 @@ function Rocket:draw()
     -- left, right, up, down
     love.graphics.polygon(
         "fill",
-        self.left, self.top,
-        self.right, self.top,
-        self.right, self.bottom,
-        self.left, self.bottom
+        {self.leftSide, self.top,
+        self.rightSide, self.top,
+        self.rightSide, self.bottom,
+        self.leftSide, self.bottom}
     )
 end
 
